@@ -72,8 +72,9 @@ public class SysUserController extends BaseController
     public void export(HttpServletResponse response, SysUser user)
     {
         List<SysUser> list = userService.selectUserList(user);
+        List<SysUser> userList = list.stream().filter(e -> !e.getUserName().equals("admin")).collect(Collectors.toList());
         ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
-        util.exportExcel(response, list, "用户数据");
+        util.exportExcel(response, userList, "用户数据");
     }
 
     @Log(title = "用户管理", businessType = BusinessType.IMPORT)
