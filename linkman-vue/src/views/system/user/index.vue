@@ -96,8 +96,8 @@
                     v-hasPermi="['system:user:edit']">修改</el-button>
                   <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)"
                     v-hasPermi="['system:user:remove']">删除</el-button>
-                  <el-button size="mini" type="text" icon="el-icon-delete" @click="shoucang(scope.row)"
-                    v-hasPermi="['system:user:edit']">收藏</el-button>
+                  <el-button v-if="scope.row.deptId !== 200" size="mini" type="text" icon="el-icon-star-off"
+                    @click="shoucang(scope.row)" v-hasPermi="['system:user:edit']">收藏</el-button>
                   <!-- <el-dropdown size="mini" @command="(command) => handleCommand(command, scope.row)"
                     v-hasPermi="['system:user:resetPwd', 'system:user:edit']">
                     <el-button size="mini" type="text" icon="el-icon-d-arrow-right">更多</el-button>
